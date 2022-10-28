@@ -23,7 +23,10 @@ type User {
     me: User
     users: [User]
     user(username: String!): User
+    player(_id: Id!): Player
 }
+
+
 
   type Mutation {
     login(email: String!, password: String!): Auth
