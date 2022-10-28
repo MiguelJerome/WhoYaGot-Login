@@ -9,6 +9,16 @@ type User {
     email: String
   }
 
+  type Player{
+  _id: ID
+  TeamID: Int
+  PlayerID: Int
+  Name: String
+  Team: String
+  Position: String
+  FantasyPoints: Int
+  }
+
   type Query {
     me: User
     users: [User]
