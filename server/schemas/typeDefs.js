@@ -23,7 +23,7 @@ type User {
     me: User
     users: [User]
     user(username: String!): User
-    player(_id: Id!): Player
+    player(_id: ID!): Player
 }
 
 
