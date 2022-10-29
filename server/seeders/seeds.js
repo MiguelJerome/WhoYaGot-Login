@@ -1,9 +1,20 @@
+
+const playerSeeds = require('./player.json');
 const db = require('../config/connection.js');
 const { User, Player } = require('../models');
 
 db.once('open', async () => {
 
+  await Player.create(playerSeeds);
+
+  /*
+  await Player.create({
+    name: 'Patrice Bergeron',
+  });
+  */
+/*
   await Player.deleteMany();
+
 
   const players = await Player.insertMany([
     {
@@ -57,23 +68,9 @@ db.once('open', async () => {
       "FantasyPoints": 14.2
     }]
   );
-
+*/
   console.log('players seeded');
 
-  //await User.deleteMany();
-/*
-  await User.create({
-    firstName: 'Pamela',
-    lastName: 'Washington',
-    email: 'pamela@testmail.com',
-    password: 'password12345',
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
-  });
-*/
   await User.create({
     username: 'Holt',
     email: 'eholt@testmail.com',

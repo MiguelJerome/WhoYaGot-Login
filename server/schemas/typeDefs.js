@@ -7,24 +7,30 @@ type User {
     _id: ID
     username: String
     email: String
+    players: [Player]
   }
 
   type Player{
-  _id: ID
+    _id: ID
   TeamID: Int
   PlayerID: Int
   Name: String
   Team: String
   Position: String
-  FantasyPoints: Int
+  FantasyPoints: Float
+  
   }
 
   type Query {
     me: User
     users: [User]
     user(username: String!): User
+    players(username: String): [Player]
     player(_id: ID!): Player
 }
+
+
+
 
 
 

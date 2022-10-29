@@ -20,6 +20,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    players: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Player'
+      }
+    ]
 
   },
   {

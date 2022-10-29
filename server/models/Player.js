@@ -1,17 +1,16 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const playerSchema = new Schema({
+
   TeamID: {
     type: Number,
-    min: 0,
-    default: 0
+    required: true
   },
   PlayerID: {
     type: Number,
-    min: 0,
-    default: 0
+    required: true,
+    unique: true
   },
   Name: {
     type: String,
@@ -24,17 +23,20 @@ const playerSchema = new Schema({
     trim: true
   },
   Position: {
-    type: String
+    type: String,
+    required: true,
+    trim: true
   },
   FantasyPoints: {
     type: Number,
     required: true,
-  
-  },
+  }
   
   
 });
 
-const Player = mongoose.model('Player', playerSchema);
+
+
+const Player = model('Player', playerSchema);
 
 module.exports = Player;
