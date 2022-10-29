@@ -5,7 +5,33 @@ const { User, Player } = require('../models');
 
 db.once('open', async () => {
 
-  await Player.create(playerSeeds);
+  //await Player.create(playerSeeds);
+
+  try {
+    await Player.deleteMany({});
+   
+
+    for (let i = 0; i < playerSeeds.length; i++) {
+      const { _id, Name } = await Player.create(playerSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { username: Name },
+        {
+          $addToSet: {
+            players: _id,
+          },
+        }
+      );
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+
+
+
+
+
 
   /*
   await Player.create({

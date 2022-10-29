@@ -21,10 +21,7 @@ type User {
   
   }
 
-  type Hello
-  {
-    hello: String
-  }
+  
 
   type Query {
     me: User
