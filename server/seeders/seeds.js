@@ -1,4 +1,5 @@
 
+const userSeeds = require('./userSeed.json');
 const playerSeeds = require('./player.json');
 const db = require('../config/connection.js');
 const { User, Player } = require('../models');
@@ -9,7 +10,8 @@ db.once('open', async () => {
 
   try {
     await Player.deleteMany({});
-   
+    await User.deleteMany({});
+    await User.create(userSeeds);
 
     for (let i = 0; i < playerSeeds.length; i++) {
       const { _id, Name } = await Player.create(playerSeeds[i]);

@@ -29,13 +29,7 @@ const resolvers = {
           
             throw new AuthenticationError('Not logged in');
           },
-          players: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Player.find(params).sort({TeamID: -1});
-          },
-          player: async (parent, { _id }) => {
-            return Player.findOne({ _id });
-          }
+         
     },
     
     
